@@ -4,7 +4,6 @@ export default function ProblemSection() {
   const ref = useReveal();
   return (
     <section ref={ref} style={{ padding: "100px 24px", maxWidth: 900, margin: "0 auto", position: "relative" }}>
-      <p className="reveal section-label" style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--green)", fontWeight: 500, marginBottom: 16, fontFamily: "'DM Mono',monospace" }}>The Problem</p>
       <h2 className="reveal" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
         "I didn't study<br />at all bro" — <span style={{ color: "var(--red)" }}>9.4 CGPA.</span>
       </h2>

@@ -30,8 +30,8 @@ export default function Hero() {
       </h1>
 
       <p style={{ fontSize: "clamp(15px,1.8vw,18px)", color: "var(--muted2)", maxWidth: 460, lineHeight: 1.75, marginTop: 28, fontWeight: 300, animation: "fadeUp 0.7s 0.24s ease both", position: "relative", zIndex: 3 }}>
-        Your friend says "I never study" and gets 9+ CGPA.<br />
-        Circlen knows what they were <em>actually</em> doing.
+        We all got that friend who says, ‘Bro, I didn’t study anything’ and still gets 9+ CGPA.<br />
+        Circlen knows the real <em>game</em>
       </p>
 
      <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 44, animation: "fadeUp 0.7s 0.36s ease both", position: "relative", zIndex: 3, flexWrap: "wrap", justifyContent: "center", padding: "0 16px", boxSizing: "border-box", width: "100%" }}>
