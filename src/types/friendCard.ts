@@ -8,4 +8,5 @@ export default interface FriendCard {
   rows?: { lbl: string; val: string }[];
   bar?: number;
   alert?: { text: string; type: "red" | "muted" };
+  flipUp?: boolean;
 }

@@ -60,8 +60,8 @@ export default function OrbitalSection() {
   return (
     <section style={{ padding: "80px 24px 100px", display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
       <p className="reveal section-label" style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--green)", fontWeight: 500, marginBottom: 16, fontFamily: "'DM Mono',monospace" }}>App Preview</p>
-      <h2 className="reveal" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: 60, textAlign: "center", maxWidth: 600 }}>
-        Your circle, <span style={{ color: "var(--green)" }}>at a glance</span>
+      <h2 className="reveal" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.2, letterSpacing: "-0.03em", marginBottom: 60, textAlign: "center", maxWidth: 600, }}>
+        Your circle, <span style={{ color: "var(--green)" }}>at a Glance</span>
       </h2>
 
       {/* Browser Frame */}
@@ -125,7 +125,7 @@ export default function OrbitalSection() {
             </div>
             {positions.map((pos, i) => (
               <div key={FRIENDS[i].id} style={{ position: "absolute", left: pos.x, top: pos.y }}>
-                <FriendNode friend={FRIENDS[i]} onToggle={toggle} isActive={activeCard === FRIENDS[i].id} />
+                <FriendNode friend={FRIENDS[i]} onToggle={toggle} isActive={activeCard === FRIENDS[i].id} flipUp={pos.y > (containerRef.current?.offsetHeight ?? 420) / 2} />
               </div>
             ))}
           </div>

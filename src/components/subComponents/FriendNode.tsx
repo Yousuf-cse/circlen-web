@@ -1,6 +1,6 @@
 import type FriendCard from "@/types/friendCard";
 
-export default function FriendNode({ friend, onToggle, isActive }: { friend: FriendCard; onToggle: (id: string) => void; isActive: boolean }) {
+export default function FriendNode({ friend, onToggle, isActive, flipUp }: { friend: FriendCard; onToggle: (id: string) => void; isActive: boolean; flipUp: boolean}) {
   const statusColor = friend.status === "study" ? "var(--green)" : friend.status === "distract" ? "var(--red)" : "var(--muted)";
   const statusShadow = friend.status === "study" ? "0 0 6px var(--green)" : friend.status === "distract" ? "0 0 6px var(--red)" : "none";
 
@@ -33,7 +33,8 @@ export default function FriendNode({ friend, onToggle, isActive }: { friend: Fri
         fontSize: 11, opacity: isActive ? 1 : 0, pointerEvents: isActive ? "auto" : "none",
         transform: isActive ? "scale(1) translateY(0)" : "scale(0.88) translateY(8px)",
         transition: "all 0.22s cubic-bezier(0.34,1.56,0.64,1)",
-        zIndex: 50, top: 56, left: "50%", marginLeft: -94,
+        zIndex: 50, left: "50%", marginLeft: -94,
+        ...(flipUp ? { bottom: 56, top: "auto" } : { top: 56, bottom: "auto" }),
       }}>
         <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 13, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
           {friend.emoji} {friend.name}
