@@ -1,7 +1,7 @@
 import { useReveal } from "./hooks/useReveal";
 import Cursor from "./components/subComponents/Cursor";
 import Particles from "./components/subComponents/Particles";
-import Nav from "./section/nav";
+import Nav from "./section/Nav";
 import Hero from "./section/Hero";
 import Ticker from "./components/subComponents/Ticker";
 import OrbitalSection from "./section/OrbitalSection";
