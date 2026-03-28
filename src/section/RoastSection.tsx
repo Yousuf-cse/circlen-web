@@ -22,7 +22,7 @@ export default function RoastSection() {
     <section style={{ padding: "60px 24px 100px", maxWidth: 680, margin: "0 auto", textAlign: "center" }}>
       <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--green)", fontWeight: 500, marginBottom: 16, fontFamily: "'DM Mono',monospace" }}>The Roast Feed</p>
       <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
-        Notifications your friends<br /><span style={{ color: "var(--red)" }}>can't ignore.</span>
+        Notifications your friends<br /><span style={{ color: "var(--red)" }}>can't IGNORE.</span>
       </h2>
       <div ref={feedRef} style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 10 }}>
         {roasts.map((r, i) => (

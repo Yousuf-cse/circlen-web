@@ -12,7 +12,7 @@ export default function FeaturesSection() {
     <section ref={ref} style={{ padding: "60px 24px 100px", maxWidth: 1100, margin: "0 auto" }}>
       <p className="reveal" style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--green)", fontWeight: 500, marginBottom: 16, fontFamily: "'DM Mono',monospace", textAlign: "center" }}>Features</p>
       <h2 className="reveal" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(28px,4vw,52px)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: 0, textAlign: "center" }}>
-        Built to <span style={{ color: "var(--green)" }}>catch you slipping.</span>
+        Built to <span style={{ color: "var(--green)" }}>catch you SLIPPING.</span>
       </h2>
       <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 12, marginTop: 60 }}>
         {features.map((f, i) => (
