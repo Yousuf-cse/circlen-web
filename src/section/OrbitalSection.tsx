@@ -150,7 +150,7 @@ export default function OrbitalSection() {
           </div>
         </div>
       </div>
-      <p style={{ fontSize: 11, color: "var(--muted)", marginTop: 18, fontFamily: "'DM Mono',monospace", letterSpacing: "0.04em", animation: "fadeUp 0.7s 0.8s ease both", position: "relative", zIndex: 3 }}>// Click any friend node to inspect their session 👆</p>
+      <p style={{ fontSize: 11, color: "var(--muted)", marginTop: 18, fontFamily: "'DM Mono',monospace", letterSpacing: "0.04em", animation: "fadeUp 0.7s 0.8s ease both", position: "relative", zIndex: 3 }}> Click on any friend to inspect their session</p>
     </section>
   );
 }
