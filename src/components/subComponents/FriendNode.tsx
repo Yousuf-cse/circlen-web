@@ -1,3 +1,5 @@
+import type FriendCard from "@/types/friendCard";
+
 export default function FriendNode({ friend, onToggle, isActive }: { friend: FriendCard; onToggle: (id: string) => void; isActive: boolean }) {
   const statusColor = friend.status === "study" ? "var(--green)" : friend.status === "distract" ? "var(--red)" : "var(--muted)";
   const statusShadow = friend.status === "study" ? "0 0 6px var(--green)" : friend.status === "distract" ? "0 0 6px var(--red)" : "none";
