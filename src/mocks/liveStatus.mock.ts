@@ -1,0 +1,1 @@
+export const LIVE_STATUS = ["Just now", "2s ago", "Just now", "5s ago"];
