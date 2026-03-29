@@ -98,9 +98,11 @@ export default function FriendNode({
       <div
         style={{
           position: "absolute",
-          top: 50,
+          ...(flipUp
+            ? { bottom: 50, top: "auto" }
+            : { top: 50, bottom: "auto" }),
           left: "50%",
-          transform: "translateX(-50%)",
+          transform: "translateX(-5%)",
           fontSize: 10,
           color: "var(--muted2)",
           whiteSpace: "nowrap",
