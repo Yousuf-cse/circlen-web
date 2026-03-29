@@ -87,6 +87,8 @@ export default function OrbitalSection() {
         flexDirection: "column",
         alignItems: "center",
         position: "relative",
+        overflowX: "hidden",
+        maxWidth: "100vw",
       }}
     >
       <p
