@@ -13,8 +13,8 @@ export default function RoastSection() {
 
   const roasts = [
     { r: true, icon: "🚨", title: "Rafi is aura farming again", titleColor: "var(--red)", body: "Rafi opened YouTube 3 times in the last 30 mins during a \"Physics session\". Studying or just vibing?", time: "2 minutes ago" },
-    { r: true, icon: "💀", title: "Breaking News: Dev hasn't studied today", titleColor: "var(--red)", body: "Dev has logged 0 minutes of study today. His exam is in 3 days. Prayers up 🙏", time: "1 hour ago" },
-    { r: false, icon: "🔥", title: "Priya is different", titleColor: "var(--green)", body: "Priya just hit a 21-day study streak. She's been on Udemy for 3 hours straight. What are you doing?", time: "3 hours ago" },
+   { icon: "💀", title: "Dev is cooked and doesn't know it", body: "Dev hasn't opened any educational app once today. Exam in 3 days. We're not saying anything. We're just saying." },
+    { icon: "😭", title: "Priya is making everyone look bad", body: "Priya just hit a 21-day streak and 3 hours on Udemy today. You opened Instagram 11 times. Just thought you should know." },
     { r: true, icon: "📱", title: "Ahmed's CGPA is in danger", titleColor: "var(--red)", body: "Ahmed opened Instagram 14 times in the last 40 mins. His session title said \"Math\". The math isn't mathing.", time: "5 hours ago" },
   ];
 
