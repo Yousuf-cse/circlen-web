@@ -1,4 +1,5 @@
 export const TICKER_ITEMS = [
-  "📱 App Usage Tracking", "🔥 Study Streaks", "💀 Roast Notifications",
-  "👥 Friend Circles", "📊 Live Progress", "🎯 Session Tracking", "⚡ Real-Time Updates",
+  "💀 No More Lies", "🫣 We're Watching", "🤡 Rafi Got Caught Again",
+  "🔥 Streaks Don't Lie", "👥 Small Circles Only", "😴 Dev Still Hasn't Opened The App",
+  "🫦 The Truth Always Comes Out", "📵 Instagram Doesn't Count", "⚡ Your Circle Knows",
 ];
