@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { joinWaitlist } from "@/lib/waitlist";
 
 export default function WaitlistSection() {
   const ref = useReveal();
+  const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleJoin = () => {
-    const el = document.getElementById("mainEmail") as HTMLInputElement;
-    const email = el?.value.trim();
-    if (!email || !email.includes("@")) { el.style.borderColor = "rgba(255,69,69,0.5)"; setTimeout(() => el.style.borderColor = "", 1000); return; }
-    setSuccess(true);
+    joinWaitlist(
+      email,
+      () => { setSuccess(true); setEmail(""); setError(""); },
+      (err) => setError(err),
+      setLoading
+    );
   };
 
   const share = () => {
@@ -28,25 +34,43 @@ export default function WaitlistSection() {
 
       {!success ? (
         <div className="reveal reveal-d1" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginTop: 44, position: "relative", zIndex: 2 }}>
-          <input id="mainEmail" type="email" placeholder="your@email.com"
+          <input
+            type="email"
+            placeholder="your@email.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             onKeyDown={e => e.key === "Enter" && handleJoin()}
             style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 100, padding: "15px 26px", color: "var(--white)", fontFamily: "'DM Sans',sans-serif", fontSize: 15, width: "100%", maxWidth: 380, outline: "none", transition: "all 0.3s" }}
             onFocus={e => { (e.target as HTMLElement).style.borderColor = "var(--border-green)"; (e.target as HTMLElement).style.boxShadow = "0 0 30px rgba(0,232,122,0.1)"; }}
             onBlur={e => { (e.target as HTMLElement).style.borderColor = "var(--border)"; (e.target as HTMLElement).style.boxShadow = ""; }}
           />
-          <button onClick={handleJoin}
-            style={{ background: "var(--green)", color: "#000", border: "none", padding: "15px 38px", borderRadius: 100, fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 700, cursor: "none", transition: "all 0.25s", letterSpacing: "-0.02em" }}
+          <button
+            onClick={handleJoin}
+            disabled={loading}
+            style={{ background: "var(--green)", color: "#000", border: "none", padding: "15px 38px", borderRadius: 100, fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 700, cursor: "none", transition: "all 0.25s", letterSpacing: "-0.02em", opacity: loading ? 0.7 : 1 }}
             onMouseEnter={e => { (e.target as HTMLElement).style.transform = "scale(1.04)"; (e.target as HTMLElement).style.boxShadow = "0 12px 40px rgba(0,232,122,0.4)"; }}
             onMouseLeave={e => { (e.target as HTMLElement).style.transform = ""; (e.target as HTMLElement).style.boxShadow = ""; }}
-          >Secure My Spot →</button>
-          <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 6, fontFamily: "'DM Mono',monospace" }}>Join <span style={{ color: "var(--green)" }}>247</span> others already on the list</p>
+          >
+            {loading ? "Joining..." : "Secure My Spot →"}
+          </button>
+          {error && (
+            <p style={{ fontSize: 12, color: "var(--red)", marginTop: 2, fontFamily: "'DM Mono',monospace", letterSpacing: "0.04em" }}>
+              {error}
+            </p>
+          )}
+          <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 2, fontFamily: "'DM Mono',monospace" }}>
+            Join <span style={{ color: "var(--green)" }}>247</span> others already on the list
+          </p>
         </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, animation: "fadeUp 0.5s ease", marginTop: 44 }}>
           <div style={{ fontSize: 44 }}>🎉</div>
           <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 22, fontWeight: 800 }}>You're on the list!</div>
           <div style={{ color: "var(--muted2)", fontSize: 14 }}>We'll hit you up when Circlen drops. Get your friends to join too 👇</div>
-          <button onClick={share} style={{ background: "var(--green)", color: "#000", border: "none", padding: "15px 38px", borderRadius: 100, fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 700, cursor: "none", marginTop: 8 }}>
+          <button
+            onClick={share}
+            style={{ background: "var(--green)", color: "#000", border: "none", padding: "15px 38px", borderRadius: 100, fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 700, cursor: "none", marginTop: 8 }}
+          >
             Share with Friends →
           </button>
         </div>
