@@ -274,22 +274,6 @@ export default function Hero() {
       <p
         style={{
           fontSize: 12,
-          color: "var(--green)",
-          marginTop: 16,
-          animation: "fadeUp 0.7s 0.48s ease both",
-          position: "relative",
-          zIndex: 3,
-          fontFamily: "'DM Mono',monospace",
-          letterSpacing: "0.04em",
-          textAlign: "center",
-          padding: "0 16px",
-        }}
-      >
-        {msg}
-      </p>
-      <p
-        style={{
-          fontSize: 12,
           color: "var(--muted)",
           marginTop: msg ? 4 : 16,
           animation: "fadeUp 0.7s 0.48s ease both",
