@@ -11,7 +11,7 @@ import FeaturesSection from "./section/FeaturesSection";
 import RoastSection from "./section/RoastSection";
 import WaitlistSection from "./section/WaitlistsSection";
 import Footer from "./section/Footer";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 function Divider() {
   return <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg,transparent,var(--border),transparent)" }} />;
