@@ -1,73 +1,145 @@
-# React + TypeScript + Vite
+# ⭕Circlen — Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Your circle. No more lies.
 
-Currently, two official plugins are available:
+We all have that one friend. The one who says 'bro I didn't study anything' and then tops the class. Circlen is for that. This is the waitlist site, built while the app is cooking.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** + **TypeScript**
+- **Vite**
+- **Tailwind CSS v4**
+- **Vercel** — hosting + serverless functions
+- **Mailchimp** — waitlist email collection
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```
+circlen/
+├── api/
+│ └── subscribe.ts
+├── public/
+├── src/
+│ ├── App.tsx
+│ ├── App.css
+│ ├── index.css
+│ ├── main.tsx
+│ ├── assets/
+│ ├── components/
+│ │ ├── subComponents/
+│ │ │ ├── Cursor.tsx
+│ │ │ ├── FriendNode.tsx
+│ │ │ ├── Particles.tsx
+│ │ │ └── Ticker.tsx
+│ │ └── ui/
+│ │ └── button.tsx
+│ ├── hooks/
+│ │ └── useReveal.ts
+│ ├── lib/
+│ │ ├── utils.ts
+│ │ └── waitlist.ts
+│ ├── mocks/
+│ │ ├── friendcard.mock.ts
+│ │ ├── liveStatus.mock.ts
+│ │ └── tickerItems.mock.ts
+│ ├── section/
+│ │ ├── FeaturesSection.tsx
+│ │ ├── Footer.tsx
+│ │ ├── Hero.tsx
+│ │ ├── Nav.tsx
+│ │ ├── OrbitalSection.tsx
+│ │ ├── ProblemSection.tsx
+│ │ ├── RoastSection.tsx
+│ │ ├── StepsSection.tsx
+│ │ └── WaitlistsSection.tsx
+│ └── types/
+│ └── friendCard.ts
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package.json
+├── pnpm-lock.yaml
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/circlen.git
+cd circlen
 ```
+
+### 2. Install dependencies
+
+```bash
+pnpm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env.local` file in the root:
+
+```env
+MAILCHIMP_API_KEY=your_api_key_here
+MAILCHIMP_AUDIENCE_ID=your_audience_id_here
+MAILCHIMP_SERVER=us18
+```
+
+You can get these from your Mailchimp account:
+- **API Key** → Account → Extras → API Keys
+- **Audience ID** → Audience → Settings → Audience name and defaults
+- **Server** → the prefix in your Mailchimp URL (e.g. `us18`)
+
+### 4. Run locally
+
+To test with the serverless function working locally:
+
+```bash
+pnpm install -g vercel
+vercel dev
+```
+
+Or just run Vite for UI-only development:
+
+```bash
+pnpm dev
+```
+
+---
+
+## Deployment
+
+Deployed on Vercel. The `api/` folder is automatically picked up as serverless functions.
+
+```bash
+vercel --prod
+```
+
+Make sure your environment variables are set in the Vercel dashboard under **Project → Settings → Environment Variables**.
+
+---
+
+## About Circlen
+
+Circlen is a mobile app (Android) that knows what your friends are really doing when they say they're studying. It tells everyone. Automatically. No warning. No mercy.
+
+This repo is the web page only, built for idea validation and waitlist collection pre-launch.
+
+---
+
+## License
+
+MIT
